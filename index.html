@@ -6,7 +6,6 @@
 <title>Josias do Rojão</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-    /* ===== ESTILO GERAL ===== */
     body {
         margin: 0;
         font-family: 'Segoe UI', Arial, sans-serif;
@@ -14,45 +13,53 @@
         color: #e0e0e0;
     }
 
-    header {
+    /* Barra de player no topo */
+    .top-player {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         background: #1a1a1a;
+        padding: 8px 0;
+        z-index: 1000;
         text-align: center;
-        padding: 25px 15px;
-        border-bottom: 2px solid #333;
-        animation: fadeInDown 1s ease-out;
+        border-bottom: 1px solid #333;
     }
 
-    header img {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 3px solid #555;
-        margin-top: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-        animation: fadeIn 1.2s ease-out;
+    .top-player iframe {
+        width: 90%;
+        max-width: 500px;
+        height: 60px;
+        border-radius: 6px;
+        border: none;
     }
 
-    header h1 {
-        font-size: 2.4rem;
-        margin: 15px 0 5px;
-        color: #f5f5f5;
-        font-weight: 600;
+    /* Seção de capa principal */
+    .hero {
+        margin-top: 80px; /* espaço para a barra do player */
+        height: 90vh;
+        background: url('foto-principal.jpg') no-repeat center center;
+        background-size: cover;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 30px;
+        box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.3);
     }
 
-    header p {
-        font-size: 1.1rem;
-        color: #bbb;
+    .hero h1 {
+        font-size: 2.8rem;
+        color: #fff;
+        background: rgba(0,0,0,0.5);
+        padding: 10px 20px;
+        border-radius: 5px;
     }
 
+    /* Conteúdo principal */
     section {
         max-width: 1000px;
         margin: auto;
         padding: 20px;
-        background: #1a1a1a;
-        border-radius: 10px;
-        margin-top: 20px;
-        animation: fadeInUp 1s ease-out;
     }
 
     h2 {
@@ -74,10 +81,11 @@
         color: #ccc;
     }
 
+    /* Capas de CDs menores */
     .cds {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
         margin-top: 20px;
     }
 
@@ -86,17 +94,6 @@
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.6);
         transition: transform 0.3s, box-shadow 0.3s;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 1s ease forwards;
-    }
-
-    .cds img:nth-child(1) {
-        animation-delay: 0.3s;
-    }
-
-    .cds img:nth-child(2) {
-        animation-delay: 0.6s;
     }
 
     .cds img:hover {
@@ -104,25 +101,10 @@
         box-shadow: 0 6px 18px rgba(0,0,0,0.8);
     }
 
-    .player {
-        text-align: center;
-        margin: 40px 0;
-        animation: fadeInUp 1s ease-out;
-    }
-
-    .player iframe {
-        width: 100%;
-        max-width: 500px;
-        height: 80px;
-        border-radius: 8px;
-        border: none;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-    }
-
+    /* Redes sociais */
     .social {
         text-align: center;
         margin-top: 30px;
-        animation: fadeInUp 1s ease-out;
     }
 
     .social a {
@@ -131,11 +113,11 @@
         text-decoration: none;
         color: #e0e0e0;
         background-color: #2a2a2a;
-        padding: 12px 18px;
+        padding: 10px 16px;
         border-radius: 50px;
         font-weight: 500;
         transition: background 0.3s, transform 0.3s;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .social a i {
@@ -155,49 +137,32 @@
         color: #777;
         margin-top: 20px;
         border-top: 1px solid #333;
-        animation: fadeInUp 1s ease-out;
-    }
-
-    /* ===== ANIMAÇÕES ===== */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInDown {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
     }
 </style>
 </head>
 <body>
 
-<header>
-    <img src="foto-principal.jpg" alt="Josias do Rojão">
-    <h2>Josias do Rojão</h2>
-    <p>Mestre do forró e do rojão</p>
-</header>
+<!-- Barra de player -->
+<div class="top-player">
+    <iframe src="https://open.spotify.com/embed/playlist/COLOQUE_AQUI_ID"
+            allowtransparency="true" allow="encrypted-media"></iframe>
+</div>
 
+<!-- Foto principal -->
+<div class="hero">
+    <h1>Josias do Rojão</h1>
+</div>
+
+<!-- Biografia -->
 <section class="bio">
     <h2>Biografia</h2>
     <p>
-        A Explosão do Forró
-Nascido na cidade de Itabaiana, Paraíba, Josias do Rojão chegou ainda criança a Campina Grande, acompanhado de sua mãe e irmãos, após o falecimento de seu pai, Joaquim Viriato. Na nova cidade, ajudou a sustentar a família desde cedo, trabalhando na juventude como fabricante de tijolos de barro.
-
-Foi aos 16 anos que o destino deu um novo rumo à sua vida: em uma apresentação de um trio de forró local, um músico faltou, e Josias foi chamado para tocar triângulo — um momento aparentemente simples que se tornaria o primeiro passo de uma carreira que já dura mais de quatro décadas. Encantado pela música, logo começou a se desenvolver também no pandeiro e nos vocais de apoio, participando de apresentações com diversas bandas e sanfoneiros da época.
-Um dos momentos marcantes de sua trajetória foi quando tocou por muitos anos com o renomado artista Diomedes, o Dedo de Ouro, uma figura lendária em Campina Grande. Foi nesse período que Josias começou a se destacar por sua voz potente e pela impressionante resistência vocal, conquistando o apelido que o acompanha até hoje: Josias do Rojão.
-Em Campina Grande, tornou-se presença constante e essencial no palco do Maior São João do Mundo, participando do evento desde seus primeiros anos, ainda na gestão do ex-prefeito Enivaldo Ribeiro. Mais tarde, recebeu apoio e incentivo do então prefeito Ronaldo Cunha Lima, a quem homenageou com o lançamento de seu primeiro LP, dedicado tanto ao político quanto à grande festa junina da cidade. O apoio se estendeu também ao filho, Cássio Cunha Lima, que deu continuidade ao legado político e cultural do pai.
-Hoje, com 74 anos, Josias do Rojão continua em plena atividade musical. Com 4 CDs gravados e mais de 40 músicas — entre composições próprias e regravações de grandes nomes do forró —, ele segue levando sua energia, talento e amor pela cultura nordestina a palcos, festas particulares e, claro, ao coração do povo.
-Josias é muito mais que um artista: é um símbolo da resistência e da tradição do forró paraibano. E como ele mesmo gosta de dizer...
-Josias do Rojão é, e sempre será, A Explosão do Forró!
+        Josias do Rojão é um cantor consagrado da música nordestina, com décadas dedicadas ao forró e ao rojão. 
+        Sua trajetória é marcada por apresentações memoráveis e canções que embalam festas e corações por todo o Brasil.
     </p>
 </section>
 
+<!-- Discografia -->
 <section>
     <h2>Discografia</h2>
     <div class="cds">
@@ -206,24 +171,18 @@ Josias do Rojão é, e sempre será, A Explosão do Forró!
     </div>
 </section>
 
-<section class="player">
-    <h2>Ouça minha música</h2>
-    <iframe src="https://open.spotify.com/embed/playlist/COLOQUE_AQUI_ID" 
-            allowtransparency="true" allow="encrypted-media"></iframe>
-</section>
-
+<!-- Redes Sociais -->
 <section class="social">
     <h2>Me siga</h2>
-    <a href="https://open.spotify.com/josiasdorojao" target="_blank"><i class="fab fa-spotify"></i> Spotify</a>
-    <a href="https://instagram.com/josiasdorojao" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-    <a href="https://youtube.com/josiasdorojao" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+    <a href="https://open.spotify.com/" target="_blank"><i class="fab fa-spotify"></i> Spotify</a>
+    <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
 </section>
 
+<!-- Rodapé -->
 <footer>
     © 2025 Josias do Rojão - Todos os direitos reservados
 </footer>
 
 </body>
 </html>
-
-
